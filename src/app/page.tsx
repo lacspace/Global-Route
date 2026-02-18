@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
@@ -27,7 +28,7 @@ export default function Home() {
   });
 
   return (
-    <div className="flex flex-col min-h-screen selection:bg-accent/30">
+    <div className="flex flex-col min-h-screen selection:bg-accent/30 overflow-x-hidden">
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-accent z-[60] origin-left"
         style={{ scaleX }}
@@ -38,8 +39,8 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         
-        {/* Trust Indicators Bar */}
-        <section className="bg-primary py-12 overflow-hidden">
+        {/* Section 2: Trust Indicators Bar */}
+        <section className="bg-primary py-8 md:py-12 overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
               {[
@@ -58,7 +59,7 @@ export default function Home() {
                 >
                   <div className="shrink-0">{item.icon}</div>
                   <div className="text-left">
-                    <p className="font-bold text-base">{item.title}</p>
+                    <p className="font-bold text-base md:text-lg">{item.title}</p>
                     <p className="text-[10px] opacity-70 uppercase tracking-widest">{item.sub}</p>
                   </div>
                 </motion.div>
@@ -67,27 +68,40 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Section 3: Destinations */}
         <Countries />
+
+        {/* Section 4: Live Stats */}
         <Stats />
+
+        {/* Section 5: Why Choose Us */}
         <WhyChooseUs />
+
+        {/* Section 6: 3D Success Path */}
         <WorkJourney />
+
+        {/* Section 7: Process Steps */}
         <Process />
+
+        {/* Section 8: Visual Life Abroad */}
         <LifeAbroad />
+
+        {/* Section 9: Detailed Trust & Compliance */}
         <TrustSection />
 
-        {/* CTA Banner */}
-        <section className="py-24 md:py-32 bg-accent/10 border-y border-accent/20 relative overflow-hidden">
+        {/* Section 10: High Impact CTA */}
+        <section className="py-20 md:py-32 bg-accent/10 border-y border-accent/20 relative overflow-hidden">
           <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
           <div className="container mx-auto px-4 text-center space-y-10 relative z-10">
             <motion.h2 
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-black text-primary max-w-4xl mx-auto leading-[1.1]"
+              className="text-3xl sm:text-4xl md:text-6xl font-black text-primary max-w-4xl mx-auto leading-[1.1]"
             >
               Your global journey starts in Nagpur.
             </motion.h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Visit our Civil Lines office or connect instantly via WhatsApp for professional guidance.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6 pt-4">
@@ -101,8 +115,13 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Section 11: Real Success Stories */}
         <SuccessStories />
+
+        {/* Section 12: Contact & HQ Location */}
         <Contact />
+
+        {/* Section 13: FAQ */}
         <Faq />
       </main>
       

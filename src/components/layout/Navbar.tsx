@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -31,7 +32,7 @@ export function Navbar() {
         : "bg-background/80 backdrop-blur-sm py-4"
     )}>
       <div className="container mx-auto flex items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <Globe className="h-6 w-6 text-primary" />
           <span className="text-lg md:text-xl font-bold tracking-tight text-primary font-headline">
             Global Career Pathways
@@ -53,7 +54,7 @@ export function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden p-2 text-primary" 
+          className="md:hidden p-2 text-primary focus:outline-none" 
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -63,33 +64,33 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div className={cn(
-        "fixed inset-x-0 top-[65px] bg-background border-b shadow-xl transition-all duration-300 ease-in-out md:hidden overflow-hidden",
-        isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        "fixed inset-x-0 top-[65px] bg-background border-b shadow-2xl transition-all duration-300 ease-in-out md:hidden overflow-hidden z-40",
+        isOpen ? "max-h-screen opacity-100 py-6" : "max-h-0 opacity-0 pointer-events-none"
       )}>
-        <div className="container mx-auto p-6 flex flex-col gap-4">
+        <div className="container mx-auto px-6 flex flex-col gap-4">
           <Link 
             href="#countries" 
-            className="text-base font-bold py-3 border-b border-muted hover:text-primary" 
+            className="text-lg font-bold py-3 border-b border-muted hover:text-primary" 
             onClick={() => setIsOpen(false)}
           >
             Destinations
           </Link>
           <Link 
             href="#process" 
-            className="text-base font-bold py-3 border-b border-muted hover:text-primary" 
+            className="text-lg font-bold py-3 border-b border-muted hover:text-primary" 
             onClick={() => setIsOpen(false)}
           >
             Process
           </Link>
           <button 
-            className="text-left text-base font-bold py-3 border-b border-muted hover:text-primary" 
+            className="text-left text-lg font-bold py-3 border-b border-muted hover:text-primary" 
             onClick={scrollToContact}
           >
             Contact
           </button>
           <Button 
             onClick={scrollToContact}
-            className="w-full bg-accent text-accent-foreground font-bold h-12 mt-2"
+            className="w-full bg-accent text-accent-foreground font-bold h-14 mt-4 text-lg"
           >
             Apply Now via WhatsApp
           </Button>
