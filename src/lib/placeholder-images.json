@@ -1,3 +1,64 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-professional",
+      "description": "Indian professional working in a modern office overseas",
+      "imageUrl": "https://images.unsplash.com/photo-1762504351153-58a41cd486dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBwcm9mZXNzaW9uYWwlMjBvZmZpY2V8ZW58MHx8fHwxNzcxNDA5MDM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian professional office"
+    },
+    {
+      "id": "healthcare-worker",
+      "description": "Indian nurse in a Canadian hospital setting",
+      "imageUrl": "https://images.unsplash.com/photo-1623438787437-7bcc5637efeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxudXJzZSUyMGhvc3BpdGFsfGVufDB8fHx8MTc3MTQwOTAzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nurse hospital"
+    },
+    {
+      "id": "warehouse-worker",
+      "description": "Professional working in a logistics warehouse in UAE",
+      "imageUrl": "https://images.unsplash.com/photo-1586528116022-aeda1613c63d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3YXJlaG91c2UlMjB3b3JrZXJ8ZW58MHx8fHwxNzcxNDA5MDM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "warehouse worker"
+    },
+    {
+      "id": "germany-skyline",
+      "description": "Berlin skyline with minimalist style",
+      "imageUrl": "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiZXJsaW4lMjBza3lsaW5lfGVufDB8fHx8MTc3MTQwOTAzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "berlin skyline"
+    },
+    {
+      "id": "uae-skyline",
+      "description": "Dubai skyline with flag element",
+      "imageUrl": "https://images.unsplash.com/photo-1615747476205-991a14cd2358?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkdWJhaSUyMHNreWxpbmV8ZW58MHx8fHwxNzcxMzU1MjM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dubai skyline"
+    },
+    {
+      "id": "canada-skyline",
+      "description": "Toronto skyline with healthcare focus",
+      "imageUrl": "https://images.unsplash.com/photo-1517935706615-2717063c2225?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0b3JvbnRvJTIwc2t5bGluZXxlbnwwfHx8fDE3NzE0MDkwMzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "toronto skyline"
+    },
+    {
+      "id": "uk-skyline",
+      "description": "London skyline for hospitality jobs",
+      "imageUrl": "https://images.unsplash.com/photo-1549483249-f0b359d1e289?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsb25kb24lMjBza3lsaW5lfGVufDB8fHx8MTc3MTQwOTAzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "london skyline"
+    },
+    {
+      "id": "success-story-1",
+      "description": "Rahul, Software Engineer in Germany",
+      "imageUrl": "https://images.unsplash.com/flagged/photo-1573603867003-89f5fd7a7576?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9mZXNzaW9uYWwlMjBtYW58ZW58MHx8fHwxNzcxMzgzODYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional man"
+    },
+    {
+      "id": "success-story-2",
+      "description": "Priya, Healthcare Assistant in UK",
+      "imageUrl": "https://images.unsplash.com/photo-1696453424673-8b05ed67ce0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNzcxMzM0MDczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional woman"
+    },
+    {
+      "id": "resume-visual",
+      "description": "Professional document with checkmark",
+      "imageUrl": "https://images.unsplash.com/photo-1723095136747-20a24afcee20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyZXN1bWUlMjBkb2N1bWVudHxlbnwwfHx8fDE3NzE0MDkwMzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "resume document"
+    }
+  ]
 }
