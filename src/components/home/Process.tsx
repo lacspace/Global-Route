@@ -1,48 +1,54 @@
-
 import { ClipboardCheck, Users, FileText, Briefcase } from "lucide-react";
 
 const steps = [
   {
-    icon: <ClipboardCheck className="h-8 w-8 text-primary" />,
+    icon: <ClipboardCheck className="h-6 w-6 md:h-8 md:w-8 text-primary" />,
     title: "Eligibility Check",
-    description: "Submit your basic details to know which countries fit your profile."
+    description: "Know which countries fit your profile instantly."
   },
   {
-    icon: <Users className="h-8 w-8 text-primary" />,
-    title: "Counselor Guidance",
-    description: "Get a dedicated expert to guide you through rules and requirements."
+    icon: <Users className="h-6 w-6 md:h-8 md:w-8 text-primary" />,
+    title: "Expert Guidance",
+    description: "Dedicated counselors guide you through every rule."
   },
   {
-    icon: <FileText className="h-8 w-8 text-primary" />,
+    icon: <FileText className="h-6 w-6 md:h-8 md:w-8 text-primary" />,
     title: "Documentation",
-    description: "We handle your visa filing and document verification with precision."
+    description: "Precise visa filing and verification handled by us."
   },
   {
-    icon: <Briefcase className="h-8 w-8 text-primary" />,
+    icon: <Briefcase className="h-6 w-6 md:h-8 md:w-8 text-primary" />,
     title: "Job Offer",
-    description: "Interview with top employers and receive your official offer letter."
+    description: "Interview with top employers and get your official letter."
   }
 ];
 
 export function Process() {
   return (
-    <section id="process" className="py-20 bg-background">
+    <section id="process" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-16">
+        <div className="text-center space-y-4 mb-12 md:mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-primary">How It Works</h2>
-          <p className="text-muted-foreground">Your four-step journey to a global career, explained simply.</p>
+          <p className="text-sm md:text-base text-muted-foreground">Your transparent 4-step journey to a global career.</p>
         </div>
-        <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
           {/* Connecting line for desktop */}
-          <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-border -z-10" />
+          <div className="hidden md:block absolute top-10 lg:top-12 left-[10%] right-[10%] h-0.5 bg-border -z-10" />
           
           {steps.map((step, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center shadow-lg border-4 border-white">
-                {step.icon}
+            <div key={idx} className="flex md:flex-col items-center md:text-center gap-6 md:gap-4 lg:gap-6 group">
+              <div className="relative">
+                <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-accent flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform shrink-0">
+                  {step.icon}
+                </div>
+                <div className="md:hidden absolute -bottom-2 -right-2 bg-primary text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">
+                  {idx + 1}
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-primary">{step.title}</h3>
-              <p className="text-sm text-muted-foreground max-w-[200px]">{step.description}</p>
+              <div className="space-y-1">
+                <h3 className="text-lg lg:text-xl font-bold text-primary">{step.title}</h3>
+                <p className="text-xs lg:text-sm text-muted-foreground max-w-[200px] leading-relaxed">{step.description}</p>
+              </div>
             </div>
           ))}
         </div>

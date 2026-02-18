@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
@@ -25,18 +24,18 @@ const stories = [
 
 export function SuccessStories() {
   return (
-    <section id="success" className="py-20 bg-secondary/20">
+    <section id="success" className="py-16 md:py-24 bg-secondary/20">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-16">
+        <div className="text-center space-y-4 mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary">Real Success Stories</h2>
-          <p className="text-muted-foreground">See how professionals like you transformed their lives and careers.</p>
+          <p className="text-sm md:text-base text-muted-foreground">See how professionals like you transformed their lives and careers.</p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
           {stories.map((story) => {
             const imgData = PlaceHolderImages.find(img => img.id === story.id);
             return (
-              <div key={story.id} className="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-primary/5 flex flex-col md:flex-row gap-8 items-start">
-                <div className="relative w-full md:w-48 h-48 rounded-xl overflow-hidden flex-shrink-0">
+              <div key={story.id} className="bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-xl border border-primary/5 flex flex-col sm:flex-row gap-6 md:gap-8 items-start">
+                <div className="relative w-full sm:w-40 md:w-48 h-48 sm:h-40 md:h-48 rounded-lg md:rounded-xl overflow-hidden flex-shrink-0">
                   <Image
                     src={imgData?.imageUrl || ""}
                     alt={story.name}
@@ -45,15 +44,15 @@ export function SuccessStories() {
                     data-ai-hint={imgData?.imageHint}
                   />
                   <div className="absolute top-2 right-2">
-                    <Badge className="bg-accent text-accent-foreground font-bold">{story.to}</Badge>
+                    <Badge className="bg-accent text-accent-foreground font-bold shadow-md">{story.to}</Badge>
                   </div>
                 </div>
                 <div className="space-y-4 flex-1">
-                  <Quote className="h-8 w-8 text-accent/50" />
-                  <p className="italic text-muted-foreground leading-relaxed">"{story.story}"</p>
+                  <Quote className="h-6 w-6 md:h-8 md:w-8 text-accent/50" />
+                  <p className="italic text-sm md:text-base text-muted-foreground leading-relaxed">"{story.story}"</p>
                   <div>
-                    <h4 className="text-xl font-bold text-primary">{story.name}</h4>
-                    <p className="text-sm font-medium text-muted-foreground">{story.job} • Formerly in {story.from}</p>
+                    <h4 className="text-lg md:text-xl font-bold text-primary">{story.name}</h4>
+                    <p className="text-xs md:text-sm font-medium text-muted-foreground">{story.job} • Formerly in {story.from}</p>
                   </div>
                 </div>
               </div>
