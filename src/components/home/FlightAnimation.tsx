@@ -25,50 +25,55 @@ export function FlightAnimation() {
 
       <svg className="w-full h-full" viewBox="0 0 1000 600" fill="none" preserveAspectRatio="xMidYMid slice">
         {/* Connection Lines & Planes */}
-        {destinations.map((dest, i) => (
-          <g key={i}>
-            {/* Animated Path */}
-            <motion.path
-              d={`M 700 360 Q ${parseFloat(dest.x) * 10 + 350} ${Math.min(parseFloat(dest.y) * 6, 360) - 100} ${parseFloat(dest.x) * 10} ${parseFloat(dest.y) * 6}`}
-              stroke="url(#gradient-line)"
-              strokeWidth="2"
-              strokeDasharray="8 8"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 0.4 }}
-              transition={{ duration: 2, delay: i * 0.5 }}
-            />
-            
-            {/* Flying Plane */}
-            <motion.g
-              initial={{ offsetDistance: "0%", opacity: 0 }}
-              animate={{ 
-                offsetDistance: ["0%", "100%"],
-                opacity: [0, 1, 1, 0]
-              }}
-              transition={{ 
-                duration: 6, 
-                repeat: Infinity, 
-                delay: i * 2, 
-                ease: "linear" 
-              }}
-              style={{
-                offsetPath: `path('M 700 360 Q ${parseFloat(dest.x) * 10 + 350} ${Math.min(parseFloat(dest.y) * 6, 360) - 100} ${parseFloat(dest.x) * 10} ${parseFloat(dest.y) * 6}')`,
-                offsetRotate: "auto 180deg"
-              }}
-            >
-              <Plane className="w-6 h-6 text-accent fill-accent rotate-90" />
-            </motion.g>
+        {destinations.map((dest, i) => {
+          const pathString = `M 700 360 Q ${parseFloat(dest.x) * 10 + 350} ${Math.min(parseFloat(dest.y) * 6, 360) - 100} ${parseFloat(dest.x) * 10} ${parseFloat(dest.y) * 6}`;
+          
+          return (
+            <g key={i}>
+              {/* Animated Path */}
+              <motion.path
+                d={pathString}
+                stroke="url(#gradient-line)"
+                strokeWidth="2"
+                strokeDasharray="8 8"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 0.4 }}
+                transition={{ duration: 2, delay: i * 0.5 }}
+              />
+              
+              {/* Flying Plane - Animated using CSS variables to avoid React DOM attribute warnings */}
+              <motion.g
+                initial={{ opacity: 0, "--offset-distance": "0%" } as any}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  "--offset-distance": "100%"
+                } as any}
+                transition={{ 
+                  duration: 6, 
+                  repeat: Infinity, 
+                  delay: i * 2, 
+                  ease: "linear" 
+                }}
+                style={{
+                  offsetPath: `path('${pathString}')`,
+                  offsetDistance: "var(--offset-distance)",
+                  offsetRotate: "auto 180deg"
+                } as any}
+              >
+                <Plane className="w-6 h-6 text-accent fill-accent rotate-90" />
+              </motion.g>
 
-            {/* Destination Marker */}
-            <circle 
-              cx={`${parseFloat(dest.x) * 10}`} 
-              cy={`${parseFloat(dest.y) * 6}`} 
-              r="3" 
-              fill="#A3E635" 
-              className="animate-pulse"
-            />
-          </g>
-        ))}
+              {/* Destination Marker */}
+              <circle 
+                cx={`${parseFloat(dest.x) * 10}`} 
+                cy={`${parseFloat(dest.y) * 6}`} 
+                r="3" 
+                fill="#A3E635" 
+                className="animate-pulse"
+              />
+            </g>
+          );
+        })}
 
         <defs>
           <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
