@@ -4,84 +4,135 @@ import { motion } from "framer-motion";
 import { Plane } from "lucide-react";
 
 const destinations = [
-  { name: "Canada", x: "15%", y: "30%" },
-  { name: "Germany", x: "45%", y: "35%" },
-  { name: "UK", x: "40%", y: "25%" },
-  { name: "UAE", x: "55%", y: "55%" },
+  { name: "Toronto", x: 120, y: 180, delay: 0 },
+  { name: "Berlin", x: 480, y: 140, delay: 2 },
+  { name: "London", x: 420, y: 120, delay: 4 },
+  { name: "Dubai", x: 580, y: 280, delay: 1 },
+  { name: "Sydney", x: 850, y: 480, delay: 5 },
+  { name: "Singapore", x: 750, y: 380, delay: 3 },
 ];
+
+const INDIA_HUB = { x: 680, y: 320 };
 
 export function FlightAnimation() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 lg:opacity-30">
-      {/* India Central Point */}
-      <div 
-        className="absolute w-4 h-4 bg-accent rounded-full shadow-[0_0_20px_rgba(163,230,53,0.8)] z-20"
-        style={{ left: "70%", top: "60%" }}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+      {/* Abstract World Grid Background */}
+      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:40px_40px]" />
+      
+      <svg 
+        className="w-full h-full min-w-[1000px] min-h-[600px] opacity-40 lg:opacity-60" 
+        viewBox="0 0 1000 600" 
+        fill="none" 
+        preserveAspectRatio="xMidYMid slice"
       >
-        <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary uppercase tracking-tighter bg-white/80 px-2 py-0.5 rounded shadow-sm">
-          India
-        </div>
-      </div>
-
-      <svg className="w-full h-full" viewBox="0 0 1000 600" fill="none" preserveAspectRatio="xMidYMid slice">
-        {/* Connection Lines & Planes */}
-        {destinations.map((dest, i) => {
-          const pathString = `M 700 360 Q ${parseFloat(dest.x) * 10 + 350} ${Math.min(parseFloat(dest.y) * 6, 360) - 100} ${parseFloat(dest.x) * 10} ${parseFloat(dest.y) * 6}`;
+        <defs>
+          <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="var(--primary)" stopOpacity="0" />
+            <stop offset="50%" stopColor="var(--accent)" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
+          </linearGradient>
           
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+
+          <radialGradient id="hub-glow">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Connection Routes */}
+        {destinations.map((dest, i) => {
+          // Create a dynamic arc path
+          const midX = (INDIA_HUB.x + dest.x) / 2;
+          const midY = Math.min(INDIA_HUB.y, dest.y) - 150;
+          const path = `M ${INDIA_HUB.x} ${INDIA_HUB.y} Q ${midX} ${midY} ${dest.x} ${dest.y}`;
+
           return (
             <g key={i}>
-              {/* Animated Path */}
-              <motion.path
-                d={pathString}
-                stroke="url(#gradient-line)"
-                strokeWidth="2"
-                strokeDasharray="8 8"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.4 }}
-                transition={{ duration: 2, delay: i * 0.5 }}
+              {/* Static Path Background */}
+              <path
+                d={path}
+                stroke="var(--primary)"
+                strokeWidth="1"
+                strokeOpacity="0.1"
+                fill="none"
               />
-              
-              {/* Flying Plane - Animated using CSS variables to avoid React DOM attribute warnings */}
+
+              {/* Animated Glowing Path */}
+              <motion.path
+                d={path}
+                stroke="url(#line-gradient)"
+                strokeWidth="2"
+                strokeDasharray="10 10"
+                fill="none"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 0.6 }}
+                transition={{ duration: 2, delay: i * 0.3 }}
+              />
+
+              {/* Flying Plane Container */}
               <motion.g
-                initial={{ opacity: 0, "--offset-distance": "0%" } as any}
-                animate={{ 
-                  opacity: [0, 1, 1, 0],
-                  "--offset-distance": "100%"
-                } as any}
-                transition={{ 
-                  duration: 6, 
-                  repeat: Infinity, 
-                  delay: i * 2, 
-                  ease: "linear" 
-                }}
                 style={{
-                  offsetPath: `path('${pathString}')`,
-                  offsetDistance: "var(--offset-distance)",
-                  offsetRotate: "auto 180deg"
+                  offsetPath: `path('${path}')`,
+                  offsetRotate: "auto 180deg",
                 } as any}
+                animate={{
+                  offsetDistance: ["0%", "100%"],
+                  opacity: [0, 1, 1, 0]
+                } as any}
+                transition={{
+                  duration: 8 + Math.random() * 4,
+                  repeat: Infinity,
+                  delay: dest.delay,
+                  ease: "easeInOut"
+                }}
               >
-                <Plane className="w-6 h-6 text-accent fill-accent rotate-90" />
+                {/* Visual Trail Effect */}
+                <circle r="4" fill="var(--accent)" filter="url(#glow)" className="opacity-50" />
+                
+                {/* Plane Icon */}
+                <g transform="rotate(90) scale(0.8)">
+                  <Plane className="w-6 h-6 text-accent fill-accent shadow-xl" />
+                </g>
               </motion.g>
 
-              {/* Destination Marker */}
-              <circle 
-                cx={`${parseFloat(dest.x) * 10}`} 
-                cy={`${parseFloat(dest.y) * 6}`} 
-                r="3" 
-                fill="#A3E635" 
-                className="animate-pulse"
-              />
+              {/* Destination Pulse Node */}
+              <g transform={`translate(${dest.x}, ${dest.y})`}>
+                <circle r="12" fill="url(#hub-glow)" className="animate-pulse" />
+                <circle r="3" fill="var(--accent)" />
+                <motion.text
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 0.5 }}
+                  x="8"
+                  y="4"
+                  className="text-[10px] font-black fill-primary uppercase tracking-tighter"
+                >
+                  {dest.name}
+                </motion.text>
+              </g>
             </g>
           );
         })}
 
-        <defs>
-          <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.2" />
-            <stop offset="50%" stopColor="var(--accent)" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.2" />
-          </linearGradient>
-        </defs>
+        {/* Central Hub (India) */}
+        <g transform={`translate(${INDIA_HUB.x}, ${INDIA_HUB.y})`}>
+          <circle r="25" fill="url(#hub-glow)" className="animate-ping opacity-20" />
+          <circle r="8" fill="var(--primary)" stroke="var(--accent)" strokeWidth="2" filter="url(#glow)" />
+          <text
+            x="-20"
+            y="25"
+            className="text-[12px] font-black fill-primary uppercase tracking-widest"
+          >
+            India Hub
+          </text>
+        </g>
       </svg>
     </div>
   );
