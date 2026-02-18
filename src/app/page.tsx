@@ -3,11 +3,12 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/home/Hero";
 import { Countries } from "@/components/home/Countries";
 import { Process } from "@/components/home/Process";
+import { TrustSection } from "@/components/home/TrustSection";
 import { SuccessStories } from "@/components/home/SuccessStories";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/toaster";
-import { BadgeCheck, Users, ShieldCheck, Headphones } from "lucide-react";
+import { BadgeCheck, Users, ShieldCheck, Headphones, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -52,18 +53,21 @@ export default function Home() {
 
         <Countries />
         <Process />
+        <TrustSection />
 
         {/* CTA Banner */}
-        <section className="py-20 bg-accent/10">
+        <section className="py-24 bg-accent/10 border-y border-accent/20">
           <div className="container mx-auto px-4 text-center space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold text-primary max-w-3xl mx-auto">
-              Ready to take your first step towards an international career?
+            <h2 className="text-3xl md:text-5xl font-bold text-primary max-w-4xl mx-auto leading-tight">
+              Don't leave your international career to chance. Talk to our experts today.
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of professionals who have already made the leap. Start with our AI Resume Analyzer to see where you stand.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Our verified counselors provide a step-by-step roadmap tailored to your specific profile and destination choice.
             </p>
-            <div className="flex justify-center gap-4">
-              <Button size="lg" className="bg-primary text-white hover:bg-primary/90">Get Started Now</Button>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 text-lg h-14 px-10">
+                Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
             </div>
           </div>
         </section>

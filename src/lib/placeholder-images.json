@@ -55,10 +55,16 @@
       "imageHint": "professional woman"
     },
     {
-      "id": "resume-visual",
-      "description": "Professional document with checkmark",
-      "imageUrl": "https://images.unsplash.com/photo-1723095136747-20a24afcee20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyZXN1bWUlMjBkb2N1bWVudHxlbnwwfHx8fDE3NzE0MDkwMzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "resume document"
+      "id": "office-team",
+      "description": "Our verified counseling team in the Mumbai office",
+      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzc2NDI1NDIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business meeting"
+    },
+    {
+      "id": "counseling-session",
+      "description": "Expert counselor guiding a candidate through visa rules",
+      "imageUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb3Vuc2Vsb3J8ZW58MHx8fHwxNzc2NDI1NDIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "counselor office"
     }
   ]
 }

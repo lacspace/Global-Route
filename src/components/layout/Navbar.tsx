@@ -18,28 +18,22 @@ export function Navbar() {
             Global Career Pathways
           </span>
         </Link>
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="#countries" className="text-sm font-medium hover:text-primary transition-colors">Countries</Link>
-          <Link href="#process" className="text-sm font-medium hover:text-primary transition-colors">Process</Link>
-          <Link href="#success" className="text-sm font-medium hover:text-primary transition-colors">Success Stories</Link>
-          <Link href="/analyzer">
-            <Button variant="outline" className="text-primary border-primary hover:bg-primary/10">Resume Analyzer</Button>
-          </Link>
-          <Button className="bg-accent text-accent-foreground hover:bg-accent/90">Apply Now</Button>
+        <div className="hidden md:flex items-center gap-8">
+          <Link href="#countries" className="text-sm font-semibold hover:text-primary transition-colors">Destinations</Link>
+          <Link href="#process" className="text-sm font-semibold hover:text-primary transition-colors">Process</Link>
+          <Link href="#success" className="text-sm font-semibold hover:text-primary transition-colors">Success Stories</Link>
+          <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold px-6">Apply Now</Button>
         </div>
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          <Menu className="h-6 w-6" />
+          <Menu className="h-6 w-6 text-primary" />
         </button>
       </div>
       {isOpen && (
-        <div className="md:hidden border-t bg-background p-4 space-y-4 animate-in slide-in-from-top duration-300">
-          <Link href="#countries" className="block text-sm font-medium py-2" onClick={() => setIsOpen(false)}>Countries</Link>
-          <Link href="#process" className="block text-sm font-medium py-2" onClick={() => setIsOpen(false)}>Process</Link>
-          <Link href="#success" className="block text-sm font-medium py-2" onClick={() => setIsOpen(false)}>Success Stories</Link>
-          <Link href="/analyzer" className="block" onClick={() => setIsOpen(false)}>
-            <Button variant="outline" className="w-full">Resume Analyzer</Button>
-          </Link>
-          <Button className="w-full bg-accent text-accent-foreground">Apply Now</Button>
+        <div className="md:hidden border-t bg-background p-6 space-y-6 animate-in slide-in-from-top duration-300">
+          <Link href="#countries" className="block text-sm font-bold py-2" onClick={() => setIsOpen(false)}>Destinations</Link>
+          <Link href="#process" className="block text-sm font-bold py-2" onClick={() => setIsOpen(false)}>Process</Link>
+          <Link href="#success" className="block text-sm font-bold py-2" onClick={() => setIsOpen(false)}>Success Stories</Link>
+          <Button className="w-full bg-accent text-accent-foreground font-bold">Apply Now</Button>
         </div>
       )}
     </nav>
