@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -6,12 +5,16 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight, CheckCircle2, Users } from "lucide-react";
+import { FlightAnimation } from "./FlightAnimation";
 
 export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-professional');
 
   return (
     <section className="relative w-full overflow-hidden bg-background pt-12 pb-24 md:pt-24 md:pb-36 lg:pt-32 lg:pb-48">
+      {/* Live Flight Animation Layer */}
+      <FlightAnimation />
+
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 -mt-24 -mr-24 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 -mb-24 -ml-24 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
@@ -24,6 +27,13 @@ export function Hero() {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-primary border border-accent/20 mb-4">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
+              </span>
+              <span className="text-xs font-black uppercase tracking-widest">Live: New jobs in Germany & Canada</span>
+            </div>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-primary leading-[0.95]">
               Real Jobs. <br />
               <span className="text-accent-foreground/50">Real People.</span> <br />
