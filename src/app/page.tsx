@@ -5,10 +5,13 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/home/Hero";
 import { Countries } from "@/components/home/Countries";
 import { Process } from "@/components/home/Process";
+import { WorkJourney } from "@/components/home/WorkJourney";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { TrustSection } from "@/components/home/TrustSection";
 import { SuccessStories } from "@/components/home/SuccessStories";
 import { Stats } from "@/components/home/Stats";
 import { LifeAbroad } from "@/components/home/LifeAbroad";
+import { Contact } from "@/components/home/Contact";
 import { Faq } from "@/components/home/Faq";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -40,10 +43,10 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
               {[
-                { icon: <BadgeCheck className="h-7 w-7 text-accent" />, title: "Govt Approved", sub: "License #12345/IND" },
+                { icon: <BadgeCheck className="h-7 w-7 text-accent" />, title: "Govt Approved", sub: "Nagpur HQ #9588/IND" },
                 { icon: <Users className="h-7 w-7 text-accent" />, title: "5,000+ Placements", sub: "Across 12 Nations" },
                 { icon: <ShieldCheck className="h-7 w-7 text-accent" />, title: "Verified Employers", sub: "100% BG Checked" },
-                { icon: <Headphones className="h-7 w-7 text-accent" />, title: "24/7 Support", sub: "Overseas Crisis Help" },
+                { icon: <Headphones className="h-7 w-7 text-accent" />, title: "24/7 Support", sub: "Nagpur Hotline Open" },
               ].map((item, idx) => (
                 <motion.div 
                   key={idx}
@@ -66,6 +69,8 @@ export default function Home() {
 
         <Countries />
         <Stats />
+        <WhyChooseUs />
+        <WorkJourney />
         <Process />
         <LifeAbroad />
         <TrustSection />
@@ -80,20 +85,24 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-4xl md:text-6xl font-black text-primary max-w-4xl mx-auto leading-[1.1]"
             >
-              Don't leave your global career to chance.
+              Your global journey starts in Nagpur.
             </motion.h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Our verified counselors provide a precise roadmap tailored to your profile.
+              Visit our Civil Lines office or connect instantly via WhatsApp for professional guidance.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6 pt-4">
-              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 text-xl h-16 px-12 shadow-2xl font-bold w-full sm:w-auto rounded-full transition-all hover:scale-105 active:scale-95">
-                Book Free Consultation <ArrowRight className="ml-2 h-6 w-6" />
+              <Button 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                size="lg" className="bg-primary text-white hover:bg-primary/90 text-xl h-16 px-12 shadow-2xl font-bold w-full sm:w-auto rounded-full transition-all hover:scale-105 active:scale-95"
+              >
+                Apply for Screening <ArrowRight className="ml-2 h-6 w-6" />
               </Button>
             </div>
           </div>
         </section>
 
         <SuccessStories />
+        <Contact />
         <Faq />
       </main>
       

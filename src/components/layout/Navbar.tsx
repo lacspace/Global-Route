@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Globe, Menu, X } from "lucide-react";
+import { Globe, Menu, X, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -18,12 +18,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToContact = () => {
+    setIsOpen(false);
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav className={cn(
-      "sticky top-0 z-50 w-full border-b transition-all duration-300",
+      "fixed top-0 z-50 w-full border-b transition-all duration-300",
       scrolled 
-        ? "bg-background/95 backdrop-blur-md py-2" 
-        : "bg-background py-4"
+        ? "bg-background/95 backdrop-blur-md py-2 shadow-sm" 
+        : "bg-background/80 backdrop-blur-sm py-4"
     )}>
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
@@ -37,8 +42,13 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           <Link href="#countries" className="text-sm font-semibold hover:text-primary transition-colors">Destinations</Link>
           <Link href="#process" className="text-sm font-semibold hover:text-primary transition-colors">Process</Link>
-          <Link href="#success" className="text-sm font-semibold hover:text-primary transition-colors">Success Stories</Link>
-          <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold px-6">Apply Now</Button>
+          <button onClick={scrollToContact} className="text-sm font-semibold hover:text-primary transition-colors">Contact</button>
+          <Button 
+            onClick={scrollToContact}
+            className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold px-6 group"
+          >
+            Apply Now <MessageCircle className="ml-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
+          </Button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -54,7 +64,7 @@ export function Navbar() {
       {/* Mobile Menu Overlay */}
       <div className={cn(
         "fixed inset-x-0 top-[65px] bg-background border-b shadow-xl transition-all duration-300 ease-in-out md:hidden overflow-hidden",
-        isOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
       )}>
         <div className="container mx-auto p-6 flex flex-col gap-4">
           <Link 
@@ -71,15 +81,17 @@ export function Navbar() {
           >
             Process
           </Link>
-          <Link 
-            href="#success" 
-            className="text-base font-bold py-3 border-b border-muted hover:text-primary" 
-            onClick={() => setIsOpen(false)}
+          <button 
+            className="text-left text-base font-bold py-3 border-b border-muted hover:text-primary" 
+            onClick={scrollToContact}
           >
-            Success Stories
-          </Link>
-          <Button className="w-full bg-accent text-accent-foreground font-bold h-12 mt-2">
-            Apply Now
+            Contact
+          </button>
+          <Button 
+            onClick={scrollToContact}
+            className="w-full bg-accent text-accent-foreground font-bold h-12 mt-2"
+          >
+            Apply Now via WhatsApp
           </Button>
         </div>
       </div>

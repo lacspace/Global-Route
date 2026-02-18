@@ -13,7 +13,7 @@ export function Footer() {
             <span className="text-xl md:text-2xl font-bold font-headline tracking-tight">Global Career Pathways</span>
           </Link>
           <p className="text-sm text-primary-foreground/70 leading-relaxed max-w-sm">
-            The most trusted gateway for Indian professionals. We provide 100% transparent documentation and verified international job opportunities.
+            The most trusted gateway for Indian professionals. Headquartered in Nagpur, we provide 100% transparent documentation and verified international job opportunities.
           </p>
           <div className="flex gap-6">
             <Facebook className="h-6 w-6 cursor-pointer hover:text-accent transition-all hover:scale-110" />
@@ -43,26 +43,26 @@ export function Footer() {
         </div>
 
         <div className="space-y-6">
-          <h4 className="text-lg font-bold border-b border-white/10 pb-2">Contact Mumbai HQ</h4>
+          <h4 className="text-lg font-bold border-b border-white/10 pb-2">Nagpur HQ (India)</h4>
           <ul className="space-y-5 text-sm">
             <li className="flex items-start gap-4">
               <MapPin className="h-5 w-5 text-accent shrink-0 mt-1" />
-              <span className="leading-relaxed">123 BKC Area, Ground Floor, Mumbai, MH 400051</span>
+              <span className="leading-relaxed">Plot No. 45, Civil Lines, Nagpur, MH 440001</span>
             </li>
             <li className="flex items-center gap-4">
               <Phone className="h-5 w-5 text-accent shrink-0" />
-              <span className="font-bold">+91 1800-123-4567</span>
+              <span className="font-bold">+91 9588464543</span>
             </li>
             <li className="flex items-center gap-4">
               <Mail className="h-5 w-5 text-accent shrink-0" />
-              <span>info@globalcareerpathways.com</span>
+              <span>nagpur.desk@globalcareerpathways.com</span>
             </li>
           </ul>
         </div>
       </div>
       <div className="container mx-auto px-4 mt-16 md:mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
         <p className="text-xs text-primary-foreground/50">
-          © {new Date().getFullYear()} Global Career Pathways. MEA Registered License #12345/IND.
+          © {new Date().getFullYear()} Global Career Pathways. MEA Registered License #95884/IND.
         </p>
         <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-xs text-primary-foreground/50 font-medium">
           <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
